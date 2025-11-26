@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+
+* { box-sizing: border-box; margin:0; padding:0; }
+body {
+  font-family: 'Orbitron', sans-serif;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  min-height:100vh;
+  padding: 24px 16px;
+  background: linear-gradient(135deg, red , Lightblue, #0000e6);
+  color:blue;
+}
+
+
+h1 { 
+  margin: 6px 0 16px; 
+  color:blue;
+  text-shadow: 2px 2px 5px #000; 
+  text-align: center;
+  font-size: 40px;
+  letter-spacing: 2px;
+}
+
+.top-row {
+  width: 100%;
+  max-width: 500px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+@media (min-width: 560px) {
+  .top-row { grid-template-columns: 1fr auto; align-items: center; }
+}
+
+.name-inputs input {
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 8px;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+}
+.name-inputs input:last-child { margin-bottom: 0; }
+
+.mode-select {
+  display: flex; gap: 8px; align-items: center;
+}
+
+/*  */
+.mode-btn, .ctrl-btn, #difficulty {
+  padding:10px 14px;
+  font-size:14px;
+  border:none;
+  border-radius:10px;
+  cursor:pointer;
+  background:#1c1cd2;
+  color:black;
+  transition:0.25s;
+}
+.mode-btn:hover, .ctrl-btn:hover {
+  background:pink;
+  color:black;
+}
+.mode-btn.active { outline: 2px solid #00ffff; }
+
+#difficulty {
+  background: rgba(255,255,255,0.15);
+  color: white;
+}
+#difficulty:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.board {
+  display:grid;
+  grid-template-columns: repeat(3, 110px);
+  grid-template-rows: repeat(3, 110px);
+  gap:12px;
+  margin: 14px 0 16px;
+}
+
+.cell {
+  background: rgba(255,255,255,0.1);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:54px;
+  cursor:pointer;
+  border-radius:14px;
+  transition: transform 0.1s ease, background 0.2s ease;
+  user-select: none;
+}
+.cell:hover { background: rgba(0,255,255,0.2); transform: translateY(-1px); }
+.winner { background: #00ff99 !important; }
+
+.scoreboard { font-size: 18px; margin-bottom: 6px; text-align:center; }
+
+.message {
+  font-size: 20px;
+  margin-bottom: 10px;
+  padding: 10px 16px;
+  border-radius: 12px;
+  background: rgba(0,255,255,0.18);
+  text-align:center;
+  display:none;
+  animation: pop 0.4s ease;
+}
+@keyframes pop {
+  0% { transform: scale(0.5); opacity:0; }
+  100% { transform: scale(1); opacity:1; }
+}
+
+.controls { display:flex; gap:10px; }
+.ctrl-btn { background:#ff0066; }
+.ctrl-btn:hover { background: #00cc00; }
+
+/* Pause button colors: red when active (pause), green when showing resume */
+#pause { background: #cc0000; }
+#pause:hover { background: #ff4444; }
+#pause.paused { background: #00aa00; }
+#pause.paused:hover { background: #66ff66; }
+
+/* Music container fixed in top-right corner */
+#bgMusicContainer {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+/* Music box styling */
+.music-box {
+  display: flex;
+  flex-direction: column; /* Title above iframe */
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.6); /* Semi-transparent dark background */
+  padding: 8px 12px;
+  border-radius: 12px; /* Rounded corners */
+  box-shadow: 0 6px 12px rgba(0,0,0,0.4); /* Subtle shadow */
+  backdrop-filter: blur(5px); /* Soft blur behind box */
+  text-align: center;
+  font-size: 14px;
+  color: white;
+  transition: transform 0.2s ease;
+}
+
+/* Hover effect to make it interactive music box */
+.music-box:hover {
+  transform: scale(1.05); /* Slight zoom on hover */
+}
+
+/* Label styling */
+.music-box p {
+  margin: 0 0 4px 0;
+  font-weight: bold;
+  font-size: 14px;
+}
+

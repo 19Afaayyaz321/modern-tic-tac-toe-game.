@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TIC TAC TOE</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>TIC TAC TOE</h1>
+
+<!-- Player Names & Mode -->
+<div class="top-row">
+  <div class="name-inputs">
+    <input type="text" id="playerXName" placeholder="Enter Your Name (Player X)">
+    <input type="text" id="playerOName" placeholder="Enter Player O Name">
+  </div>
+  <div class="mode-select">
+    <button id="pvp" class="mode-btn active">2 Player</button>
+    <button id="ai" class="mode-btn">Robot Mode</button>
+    <select id="difficulty">
+      <option value="normal" selected>Normal</option>
+      <option value="hard">Hard (Strong)</option>
+      <option value="easy">Easy</option>
+    </select>
+  </div>
+</div>
+
+<!-- Scoreboard -->
+<div class="scoreboard" id="scoreboard">Player X: 0 | Player O: 0</div>
+<div class="message" id="messageBox"></div>
+
+<!-- Board -->
+<div class="board" id="board">
+  <div class="cell" data-index="0"></div>
+  <div class="cell" data-index="1"></div>
+  <div class="cell" data-index="2"></div>
+  <div class="cell" data-index="3"></div>
+  <div class="cell" data-index="4"></div>
+  <div class="cell" data-index="5"></div>
+  <div class="cell" data-index="6"></div>
+  <div class="cell" data-index="7"></div>
+  <div class="cell" data-index="8"></div>
+</div>
+
+<!-- Controls -->
+<div class="controls">
+  <button class="ctrl-btn" id="reset">Reset</button>
+  <button class="ctrl-btn" id="pause">Pause</button>
+  <button class="ctrl-btn" id="stop">Stop</button>
+</div>
+
+<!-- Background Music -->
+<div id="bgMusicContainer">
+  <div class="music-box">
+    <p>🎵 Background Music</p>
+    <iframe id="bgMusic" width="250" height="50" 
+      src="https://vocaroo.com/embed/11I96GbIDLyh?autoplay=0" 
+      frameborder="0" allow="autoplay"></iframe>
+  </div>
+</div>
+
+<!-- Celebration Sounds -->
+<audio id="applause">
+  <source src="https://www.soundjay.com/human/applause-01.mp3" type="audio/mpeg">
+</audio>
+<audio id="cheer">
+  <source src="https://www.soundjay.com/human/cheer-1.mp3" type="audio/mpeg">
+</audio>
+
+<script src="script.js"></script>
+</body>
+</html>
